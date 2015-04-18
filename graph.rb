@@ -3,25 +3,22 @@ class Graph
   attr_accessor :gruff
 
   def initialize(title)
-    @gruff = Gruff::Line.new
+    @gruff = Gruff::Line.new(AppConfig::ImageSize)
     @gruff.title = title
     @gruff.font = Paths::Font
 
     @length = 0
   end
 
-  def set(category, points)
+  def append(category, points)
     @gruff.data(category, points)
+  end
 
-    # NOTE グラフ横サイズを拡張する
-    @length = (points.size > @length ? points.size : @length)
+  def labels=(labels)
+    @gruff.labels = labels
   end
 
   def plot!
-    @gruff.labels = @length.times.inject({}) {|hs, index|
-        hs[index] = "#{index}"
-        hs
-      }
     [200, {'Content-Type' => 'image/png'}, @gruff.to_blob]
   end
 end
