@@ -1,7 +1,13 @@
 class AppConfig
   Root = File.expand_path('..', __FILE__)
   ImageSize = '1200x600'
-  Theme = 'theme_rails_keynote'
+  DefaultTheme = 'theme_rails_keynote'
+  Themes = %w(theme_keynote
+              theme_37signals
+              theme_rails_keynote
+              theme_odeo
+              theme_pastel
+              theme_greyscale).freeze
 end
 
 class Paths
