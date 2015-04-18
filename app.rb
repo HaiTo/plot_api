@@ -11,9 +11,9 @@ class AppConfig
 end
 
 class Paths
-  Server = File.join(AppConfig::Root, 'server.rb')
-  Graph = File.join(AppConfig::Root, 'graph.rb')
-  Font = File.join(AppConfig::Root, 'RictyDiminished-Regular.ttf')
+  Server = File.join(AppConfig::Root, 'app', 'server.rb')
+  Graph = File.join(AppConfig::Root, 'app', 'graph.rb')
+  Font = File.join(AppConfig::Root, 'assets', 'RictyDiminished-Regular.ttf')
 end
 
 require 'active_support/all'

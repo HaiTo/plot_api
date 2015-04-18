@@ -1,7 +1,4 @@
 class Graph
-  require 'gruff'
-  attr_accessor :gruff
-
   def initialize(title)
     @gruff = Gruff::Line.new(AppConfig::ImageSize)
     @gruff.title = title
@@ -26,8 +23,6 @@ class Graph
   def plot!
     @gruff.to_blob
   end
-
-  private
 
   def right_theme?(theme)
     AppConfig::Themes.include?(theme)

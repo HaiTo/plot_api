@@ -1,5 +1,3 @@
-# SERVER
-
 class Server < Sinatra::Base
   # @PARAM json {
   #     "title": "String",
@@ -42,10 +40,11 @@ class Server < Sinatra::Base
       graph.labels = labels
 
       # NOTE テーマの設定
+      p json
       graph.theme = json['theme']
 
       # NOTE PngのBlobを取得
-      [200, {'Content-Type' => 'image/png'}, graph.plot!]
+      return [200, {'Content-Type' => 'image/png'}, graph.plot!]
     rescue
       status 400
     end
