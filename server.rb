@@ -11,7 +11,7 @@ class Server < Sinatra::Base
   #     }
   #   }
   # @RETURN json {img: blob}
-  post '/graph' do
+  post '/' do
     begin
       json = JSON.load(request.body.read)
     rescue
