@@ -22,6 +22,6 @@ class Graph
         hs[index] = "#{index}"
         hs
       }
-    @gruff.to_blob
+    [200, {'Content-Type' => 'image/png'}, @gruff.to_blob]
   end
 end
