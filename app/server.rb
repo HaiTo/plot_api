@@ -7,14 +7,7 @@ class Server < Sinatra::Base
   #     "labels" = {
   #       {"Integer": "string"...}
   #     },
-  #     "theme": "String" // not required
-  #       # ... theme_keynote
-  #       # ... theme_37signals
-  #       # ... theme_rails_keynote <- Default
-  #       # ... theme_odeo
-  #       # ... theme_pastel
-  #       # ... theme_greyscale
-  #   }
+  #     "size" = "string"  # "0000x0000" # NOT RQEUIRED
   # @RETURN json {img: blob}
   post '/' do
     # NOTE JSONの形式は正しいかい？
@@ -25,7 +18,7 @@ class Server < Sinatra::Base
     end
 
     begin
-      graph = Graph.new(json['title'])
+      graph = Graph.new(json['title'], json['size'])
       # NOTE グラフデータのセット
       json['datas'].each do |data|
         graph.append(data['category'], data['points'])
@@ -38,10 +31,6 @@ class Server < Sinatra::Base
       end
 
       graph.labels = labels
-
-      # NOTE テーマの設定
-      p json
-      graph.theme = json['theme']
 
       # NOTE PngのBlobを取得
       return [200, {'Content-Type' => 'image/png'}, graph.plot!]

@@ -1,6 +1,6 @@
 class Graph
-  def initialize(title)
-    @gruff = Gruff::Line.new(AppConfig::ImageSize)
+  def initialize(title, size)
+    @gruff = Gruff::Bezier.new(size.nil? ? AppConfig::ImageSize : size)
     @gruff.title = title
     @gruff.font = Paths::Font
     @gruff.__send__(AppConfig::DefaultTheme)
@@ -12,19 +12,11 @@ class Graph
     @gruff.data(category, points)
   end
 
-  def theme=(theme)
-    right_theme? ? @gruff.__send__(theme) : false
-  end
-
   def labels=(labels)
     @gruff.labels = labels
   end
 
   def plot!
     @gruff.to_blob
-  end
-
-  def right_theme?(theme)
-    AppConfig::Themes.include?(theme)
   end
 end
