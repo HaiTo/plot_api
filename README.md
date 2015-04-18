@@ -19,4 +19,4 @@ Status: 200 OK
 Content-Type: image/png
 Body: #png バイナリ
 ```
-[https://idobata.s3.amazonaws.com/uploads/attachment/image/147128/6b8108eb-6c03-4691-8a66-c6ba22c206fb/graph__1_.png](hoge)
+![hoge](https://idobata.s3.amazonaws.com/uploads/attachment/image/147128/6b8108eb-6c03-4691-8a66-c6ba22c206fb/graph__1_.png)
