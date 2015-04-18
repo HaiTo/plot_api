@@ -1,6 +1,7 @@
 class AppConfig
   Root = File.expand_path('..', __FILE__)
   ImageSize = '1200x400'
+  Theme = 'theme_37signals'
 end
 
 class Paths

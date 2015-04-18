@@ -6,6 +6,7 @@ class Graph
     @gruff = Gruff::Line.new(AppConfig::ImageSize)
     @gruff.title = title
     @gruff.font = Paths::Font
+    @gruff.__send__(AppConfig::Theme)
 
     @length = 0
   end
